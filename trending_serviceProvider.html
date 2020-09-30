@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Trending</title>
+  <link rel="stylesheet" href="profile.css">
+  <script src="animations.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+  <style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    
+    /* The Modal (background) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    
+    /* Modal Content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+    
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    </style>
+</head>
+
+<body class="content-grid">
+    <header>
+        <div class="header-nav">
+          <span class="loginLink"><a href= "serviceProvider.html"><h1>PetLink</h1></a></span>
+          <a href="trending_serviceProvider.html"> <button class="dropbtn">Trending</button></a>
+          <a href="messaging_serviceProvider.html"> <button class="dropbtn">Messaging</button></a>
+
+          <div class="dropdown">
+              <button onclick="myFunction()" class="dropbtn">Jobs</button>
+              <div id="myDropdown" class="dropdown-content">
+                  <a href="findJob.html">Find A Jobs</a>
+                  <a href="#">Job History</a>
+                  <a href="#">Requests</a>
+              </div>
+          </div>
+      </div>
+        <script>
+            /* JAVA SCRIPT THAT ACTIVATES THE DROP DOWN MENU */
+        
+            /* When the user clicks on the button, 
+            toggle between hiding and showing the dropdown content */
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+        
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+        </script>
+    </header>
+
+<div class="container">
+    <h2>Trending Feed<h2>
+        <main class="user-profile">
+            <div class="buttons">
+                <button id="prev">&uarr; Prev</button>
+                <button id="next">&darr; Next</button>
+            </div>
+        
+            <div id="spinner">
+                Loading...
+            </div>
+
+            <div id="carousel">
+                <figure>
+                <figcaption><a href="#">DogOwner</a></figcaption>
+                <img src="./resources/download-1.jpg" alt="" style="width: 100%">
+                <figcaption>Check out my dog</figcaption>
+                <button id="myBtn1">Playdate Invite</button>
+                <div id="myModal1" class="modal">
+                    <div class="modal-content">
+                        <span class="close1">&times;</span>
+                        <p>Playdate request sent!</p>
+                    </div>
+                </div>
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById("myModal1");
+                    
+                    // Get the button that opens the modal
+                    var btn = document.getElementById("myBtn1");
+                    
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close1")[0];
+                    
+                    // When the user clicks the button, open the modal 
+                    btn.onclick = function() {
+                      modal.style.display = "block";
+                    }
+                    
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() {
+                      modal.style.display = "none";
+                    }
+                    
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                      if (event.target == modal) {
+                        modal.style.display = "none";
+                      }
+                    }
+                    </script>
+                <hr>
+                </figure>
+
+                <figure>
+                <figcaption><a href-="#">Max95</a></figcaption>
+                <img src="./resources/maxresdefault.jpg" alt="" style="width:100%">
+                <figcaption>My New Best Friend</figcaption>
+                <button id="myBtn2">Playdate Invite</button>
+                <div id="myModal2" class="modal">
+                    <div class="modal-content">
+                        <span class="close2">&times;</span>
+                        <p>Playdate request sent!</p>
+                    </div>
+                </div>
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById("myModal2");
+                    
+                    // Get the button that opens the modal
+                    var btn = document.getElementById("myBtn2");
+                    
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close2")[0];
+                    
+                    // When the user clicks the button, open the modal 
+                    btn.onclick = function() {
+                      modal.style.display = "block";
+                    }
+                    
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() {
+                      modal.style.display = "none";
+                    }
+                    
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                      if (event.target == modal) {
+                        modal.style.display = "none";
+                      }
+                    }
+                    </script>
+                <hr>
+                </figure>
+                
+                <figure>
+                <figcaption><a href="#">PetLover</a></figcaption>
+                <img src="./resources/shutterstock_448643245.jpg" alt="" style="width:100%">
+                <figcaption>My New Best Friend</figcaption>
+                <button id="myBtn3">Playdate Invite</button>
+                <div id="myModal3" class="modal">
+                    <div class="modal-content">
+                        <span class="close3">&times;</span>
+                        <p>Playdate request sent!</p>
+                    </div>
+                </div>
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById("myModal3");
+                    
+                    // Get the button that opens the modal
+                    var btn = document.getElementById("myBtn3");
+                    
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close3")[0];
+                    
+                    // When the user clicks the button, open the modal 
+                    btn.onclick = function() {
+                      modal.style.display = "block";
+                    }
+                    
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() {
+                      modal.style.display = "none";
+                    }
+                    
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                      if (event.target == modal) {
+                        modal.style.display = "none";
+                      }
+                    }
+                    </script>
+                <hr>
+                </figure>
+                
+                <figure>
+                <figcaption><a href="#">Cathater</a></figcaption>
+                <img src="./resources/shutterstock_448643245.jpg" alt="" style="width:100%">
+                <figcaption>Dog Face</figcaption>
+                <button id="myBtn4">Playdate Invite</button>
+                <div id="myModal4" class="modal">
+                    <div class="modal-content">
+                        <span class="close4">&times;</span>
+                        <p>Playdate request sent!</p>
+                    </div>
+                </div>
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById("myModal4");
+                    
+                    // Get the button that opens the modal
+                    var btn = document.getElementById("myBtn4");
+                    
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close4")[0];
+                    
+                    // When the user clicks the button, open the modal 
+                    btn.onclick = function() {
+                      modal.style.display = "block";
+                    }
+                    
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() {
+                      modal.style.display = "none";
+                    }
+                    
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                      if (event.target == modal) {
+                        modal.style.display = "none";
+                      }
+                    }
+                    </script>
+                <hr>
+                </figure>
+                
+                <figure>
+                <figcaption><a href="#">DogDad</a></figcaption>
+                <img src="./resources/unnamed.jpg" alt="" style="width:100%">
+                <figcaption>My Life</figcaption>
+                <button id="myBtn5">Playdate Invite</button>
+                <div id="myModal5" class="modal">
+                    <div class="modal-content">
+                        <span class="close5">&times;</span>
+                        <p>Playdate request sent!</p>
+                    </div>
+                </div>
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById("myModal5");
+                    
+                    // Get the button that opens the modal
+                    var btn = document.getElementById("myBtn5");
+                    
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close5")[0];
+                    
+                    // When the user clicks the button, open the modal 
+                    btn.onclick = function() {
+                      modal.style.display = "block";
+                    }
+                    
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() {
+                      modal.style.display = "none";
+                    }
+                    
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                      if (event.target == modal) {
+                        modal.style.display = "none";
+                      }
+                    }
+                    </script>
+                <hr>
+                </figure>
+                
+                <figure>
+                <figcaption><a href="#">iHeartPups</a></figcaption>
+                <img src="./resources/Dogs-tend-to-adopt-the-same-personality-traits-as-their-owners-730x410.jpg" alt="" style="width:100%">
+                <figcaption>Need a new playdate!</figcaption>
+                <button id="myBtn6">Playdate Invite</button>
+                    <div id="myModal6" class="modal">
+                        <div class="modal-content">
+                            <span class="close6">&times;</span>
+                            <p>Playdate request sent!</p>
+                        </div>
+                    </div>
+                    <script>
+                        // Get the modal
+                        var modal = document.getElementById("myModal6");
+                        
+                        // Get the button that opens the modal
+                        var btn = document.getElementById("myBtn6");
+                        
+                        // Get the <span> element that closes the modal
+                        var span = document.getElementsByClassName("close6")[0];
+                        
+                        // When the user clicks the button, open the modal 
+                        btn.onclick = function() {
+                          modal.style.display = "block";
+                        }
+                        
+                        // When the user clicks on <span> (x), close the modal
+                        span.onclick = function() {
+                          modal.style.display = "none";
+                        }
+                        
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function(event) {
+                          if (event.target == modal) {
+                            modal.style.display = "none";
+                          }
+                        }
+                        </script>
+                <hr>
+                </figure>
+                <hr>
+            </div>
+        </main>
+</div>
+
+<footer>
+  <span class="contactus">Contact us: <a href="mailto:support@petlink.com">support@petlinkapp.com</a></span>
+  <span class="social_icons">
+      <a href="linktofacebook"><i class="fab fa-facebook"></i></a>
+      <a href="linktotwitter"><i class="fab fa-twitter"></i></a>
+  </span>
+  <button type="button"><a href="index.html">Log Out</a></button>
+</footer>
+</body>
+</html>
+
+    

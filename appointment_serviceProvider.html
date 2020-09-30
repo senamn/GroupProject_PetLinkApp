@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Appointment</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="appointment.css.css">
+      <link rel="stylesheet" href="profile.css">
+      <script>
+         $(function () {
+           $('#datetimepicker1').datetimepicker();
+        });
+     </script>
+   </head>
+
+<body class="content-grid">
+   <header>
+      <div class="header-nav">
+         <span class="loginLink"><a href= "serviceProvider.html"><h1>PetLink</h1></a></span>
+         <a href="trending_serviceProvider.html"> <button class="dropbtn">Trending</button></a>
+         <a href="messaging_serviceProvider.html"> <button class="dropbtn">Messaging</button></a>
+
+         <div class="dropdown">
+             <button onclick="myFunction()" class="dropbtn">Jobs</button>
+             <div id="myDropdown" class="dropdown-content">
+                 <a href="findJob.html">Find A Jobs</a>
+                 <a href="#">Job History</a>
+                 <a href="#">Requests</a>
+             </div>
+         </div>
+     </div>
+      <script>
+          /* JAVA SCRIPT THAT ACTIVATES THE DROP DOWN MENU */
+      
+          /* When the user clicks on the button, 
+          toggle between hiding and showing the dropdown content */
+          function myFunction() {
+              document.getElementById("myDropdown").classList.toggle("show");
+          }
+      
+          // Close the dropdown if the user clicks outside of it
+          window.onclick = function (event) {
+              if (!event.target.matches('.dropbtn')) {
+                  var dropdowns = document.getElementsByClassName("dropdown-content");
+                  var i;
+                  for (i = 0; i < dropdowns.length; i++) {
+                      var openDropdown = dropdowns[i];
+                      if (openDropdown.classList.contains('show')) {
+                          openDropdown.classList.remove('show');
+                      }
+                  }
+              }
+          }
+      </script>
+  </header>
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Confirm an Appointment</div>
+      <div class="panel-body">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="form-group">
+                  <label class="control-label">First Name</label>
+                  <input type="text" class="form-control" name="fname" id="fname">
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group">
+                  <label class="control-label">Last Name</label>
+                  <input type="text" class="form-control" name="lname" id="lname">
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-6">
+               <div class="form-group">
+                  <label class="control-label">Email</label>
+                  <input type="text" class="form-control" name="email" id="email">
+               </div>
+            </div>
+            <div class='col-md-6'>
+               <div class="form-group">
+                  <label class="control-label">Appointment Time</label>
+                  <div class='input-group date' id='datetimepicker1'>
+                     <input type='text' class="form-control" />
+                     <span class="input-group-addon">
+                     <span class="glyphicon glyphicon-calendar"></span>
+                     </span>
+                  </div>
+               </div>
+            </div>
+        </div>
+        <a href="thankyou_serviceProvider.html"><input type="submit" class="btn btn-primary" value="Confirm"></a>
+      </div>
+   </div>
+</div>
+
+
+<footer>
+   <span class="contactus">Contact us: <a href="mailto:support@petlink.com">support@petlinkapp.com</a></span>
+   <span class="social_icons">
+       <!-- <a href="linktofacebook"><i class="fab fa-facebook"></i></a>
+       <a href="linktotwitter"><i class="fab fa-twitter"></i></a> -->
+   </span>
+   <button type="button"><a href="index.html">Log Out</a></button>
+</footer>
+</body>
+</html>

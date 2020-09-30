@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Service Provider</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+</head>
+
+<body class="content-grid">
+    <header>
+        <div class="header-nav">
+            <span class="loginLink"><a href= "petOwner.html"><h1>PetLink</h1></a></span>
+            <a href="trending.html"> <button class="dropbtn">Trending</button></a>
+            <a href="messaging.html"> <button class="dropbtn">Messaging</button></a>
+
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Services</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Vetenarians</a>
+                    <a href="groomersOPT.html">Groomers</a>
+                    <a href="#">Walkers/Sitters</a>
+                </div>
+            </div>
+        </div>
+        <script>
+            /* JAVA SCRIPT THAT ACTIVATES THE DROP DOWN MENU */
+        
+            /* When the user clicks on the button, 
+            toggle between hiding and showing the dropdown content */
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+        
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+        </script>
+    </header>
+
+<!--  HERE WE ARE SETTING UP THE GRID FOR THE SERVICES OF THE GROOMERS OPTIONS -->
+
+<div class="rowONE">
+    <div class="column1">
+        <h2>Groomers USA</h2>
+        <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="./resources/dog1.jpg" alt=""></a>
+            <div class="card-body">
+                <h4 class="card-title">
+                    <a href="appointment.html">Make an Appointment Here</a>
+                </h4>
+                <p class="card-text">At Groomers USA, we take every step necessary to ensure your pup is in the best hands.
+                     We treat all our freinds as if they were our own and provide individualized attention and tender loving care.
+                </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+            </div>
+        </div>
+    </div>
+    <div class="column1">
+        <h2>OldTown Groomer</h2>
+        <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="./resources/dog2.jpg" alt=""></a>
+            <div class="card-body">
+                <h4 class="card-title">
+                    <a href="appointment.html">Make an Appointment Here</a>
+                </h4>
+                <p class="card-text">I have been grooming and caring for animals for 20 plus years. 
+                    I am a loving, caring, professional groomer that offers
+                    kennel free, one dog at a time spa day for your furbaby!</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="rowTWO">
+        <div class="column1">
+            <h2>Loving Clips</h2>
+            <div class="card h-100">
+                <a href="appointment.html"><img class="card-img-top" src="./resources/dog3.jpg" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#">Make an Appointment Here</a>
+                    </h4>
+                    <p class="card-text">
+                        A Pet Wellness store dedicates all its resources 
+                        to ensure that it is only providing all natural and holistic products
+                        and services to benefit the pet.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+            </div>
+        </div>
+        <div class="column1">
+            <h2>Pet Salon</h2>
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="./resources/dog4.jpg" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="appointment.html">Make an Appointment Here</a>
+                    </h4>
+                    <p class="card-text">
+                        The Posh Paw Resort helps pet parents looking for a loving home away from home for overnight stays, a professional and
+                        pampering salon service, and a fun, stimulating, safe environment for daycamp. Feel confident your pet will be loved and
+                        treated like our own at Posh Paw Resort.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menus">
+        <a href="findAJob.html"></a>
+        <a href="currentJob.html"></a>
+        <a href="map.html">Map</a>
+        <a href="requests.html">requests</a>
+    </div>
+
+    <footer>
+        <span class="contactus">Contact us: <a href="mailto:support@petlink.com">support@petlinkapp.com</a></span>
+        <span class="social_icons">
+            <a href="linktofacebook"><i class="fab fa-facebook"></i></a>
+            <a href="linktotwitter"><i class="fab fa-twitter"></i></a>
+        </span>
+        <button type="button"><a href="index.html">Log Out</a></button>
+    </footer>
+</body>
+</html>

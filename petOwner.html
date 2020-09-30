@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pet Owner Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+</head>
+
+<body class="content-grid">
+    <header>
+        <div class="header-nav">
+            <span class="loginLink"><a href= "petOwner.html"><h1>PetLink</h1></a></span>
+            <a href="trending.html"> <button class="dropbtn">Trending</button></a>
+            <a href="messaging.html"> <button class="dropbtn">Messaging</button></a>
+
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Services</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Vetenarians</a>
+                    <a href="groomersOPT.html">Groomers</a>
+                    <a href="#">Walkers/Sitters</a>
+                </div>
+            </div>
+        </div>
+        <script>
+            /* JAVA SCRIPT THAT ACTIVATES THE DROP DOWN MENU */
+        
+            /* When the user clicks on the button, 
+            toggle between hiding and showing the dropdown content */
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+        
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+        </script>
+    </header>
+
+
+    <div class="promotion-preview">
+        <!-- a promo image would do? -->
+    </div>
+
+    <main class="user-profile">
+
+        <div class class="container">
+            <div class = "profile-header">
+                <div class = "profile-img">
+                    <img src = "https://bootdey.com/img/Content/avatar/avatar1.png" width="200"
+                    alt="">
+                </div>
+
+                <div class= ".profile-nav-info">
+                    <h3 class="user-name"> Pet Owner </h3>
+                    <div class = "adress">
+                        <p class = "state" >Texas,</p>
+                        <span class="country">USA</span>
+                    </div>
+                </div>
+               <!-- 
+                <div class = "profile-option">
+                    <div class="country">
+                       <i class="fa fa-bell"></i>
+                       <span class="alert-message">1</span> 
+                    </div>
+                </div>
+                -->
+            </div>
+            <div class="main-bd">
+                <div class="left-side">
+                    <div class="profile-side">
+                        <p class="mobile-no">
+                            <i class="fa fa-phone"></i>
+                                +2347xxxxx5464
+                        </p>
+                        <p class = "user=mail">
+                            <i class="fa fa-envelope"></i>
+                            support@petlinkapp.com
+                        </p>
+                        <div class="user-bio">
+                            <h3>Bio</h3>
+                            <p class ="bio">
+                            Dummy text is text that is used in the publishing industry or 
+                            by web designers to occupy the space which will later be
+                            filled with 'real' content. This is required when, for example,
+                             the final text is not yet available. Dummy text is also
+                            known as 'fill text'.
+                            </p>
+                        </div>
+                        <!--
+                        <div class="profile-btn">
+                            <button class="chatbtn">
+                                <i class="fa fa-comment"></i>
+                                Chat
+                            </button>
+                            <button class="createbtn">
+                            <i class="fa fa-plus"></i>
+                                Create
+                            </button>
+                        </div>
+                        
+                        <div class="user-rating">
+                            <h3 class="rating">4.5</h3>
+                            <div class="rate">
+                                <div class="stars">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <span class="no-user">
+                                <span>123</span>&nbsp;&nbsp;
+                                reviews
+                            </span>
+                        </div>
+                        -->
+                    </div>
+                </div>
+                    
+                    <div class="profile-body">
+                        <div class="profile-posts tab">
+                            <h1>Your Posts</h1>
+                            <p>
+                                Dummy text is text that is used in the publishing industry or
+                                by web designers to occupy the space which will later be
+                                filled with 'real' content. This is required when, for example,
+                                the final text is not yet available. Dummy text is also
+                                known as 'fill text'.
+                            </p>
+                        </div>
+                        <div class="profile-review tab">
+                            <h1>User Reviews</h1>
+                            <p>
+                                Dummy text is text that is used in the publishing industry or
+                                by web designers to occupy the space which will later be
+                                filled with 'real' content. This is required when, for example,
+                                the final text is not yet available. Dummy text is also
+                                known as 'fill text'.
+                            </p>
+                        </div>
+                        <div class="profile-setting tab">
+                        <h1>Account Settings</h1>
+                        <p>
+                            Dummy text is text that is used in the publishing industry or
+                            by web designers to occupy the space which will later be
+                            filled with 'real' content. This is required when, for example,
+                            the final text is not yet available. Dummy text is also
+                            known as 'fill text'.
+                        </p>
+                        </div>
+                    </div>
+
+
+                    
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <span class="contactus">Contact us: <a href="mailto:support@petlink.com">support@petlinkapp.com</a></span>
+        <span class="social_icons">
+            <a href="linktofacebook"><i class="fab fa-facebook"></i></a>
+            <a href="linktotwitter"><i class="fab fa-twitter"></i></a>
+        </span>
+        <button type="button"><a href="index.html">Log Out</a></button>
+    </footer>
+</body>
+</html>

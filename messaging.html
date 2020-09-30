@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from https://bootdey.com  -->
+    <!--  All snippets are MIT license https://bootdey.com/license -->
+    <title>Messaging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Messaging</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head> 
+   
+    <style type="text/css">
+        
+    	body {
+    font-family: Roboto,sans-serif;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #767676;
+    background-color: #edecec;
+}
+
+#messages-main {
+    position: relative;
+    margin: 0 auto;
+    padding: auto;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+#messages-main:after, #messages-main:before {
+    content: " ";
+    display: table;
+}
+#messages-main .ms-menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-right: 1px solid #eee;
+    padding-bottom: 50px;
+    height: 100%;
+    width: 240px;
+    background: #fff;
+}
+@media (min-width:768px) {
+    #messages-main .ms-body {
+    padding-left: 240px;
+}
+}@media (max-width:767px) {
+    #messages-main .ms-menu {
+    height: calc(100% - 58px);
+    display: none;
+    z-index: 1;
+    top: 58px;
+}
+#messages-main .ms-menu.toggled {
+    display: block;
+}
+#messages-main .ms-body {
+    overflow: hidden;
+}
+}
+#messages-main .ms-user {
+    padding: 15px;
+    background: #f8f8f8;
+}
+#messages-main .ms-user>div {
+    overflow: hidden;
+    padding: 3px 5px 0 15px;
+    font-size: 11px;
+}
+#messages-main #ms-compose {
+    position: fixed;
+    bottom: 120px;
+    z-index: 1;
+    right: 30px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
+}
+#ms-menu-trigger {
+    user-select: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    padding-right: 10px;
+    padding-top: 19px;
+}
+#ms-menu-trigger i {
+    font-size: 21px;
+}
+#ms-menu-trigger.toggled i:before {
+    content: '\f2ea'
+}
+.fc-toolbar:before, .login-content:after {
+    content: ""
+}
+.message-feed {
+    padding: 20px;
+}
+#footer, .fc-toolbar .ui-button, .fileinput .thumbnail, .four-zero, .four-zero footer>a, .ie-warning, .login-content, .login-navigation, .pt-inner, .pt-inner .pti-footer>a {
+    text-align: center;
+}
+.message-feed.right>.pull-right {
+    margin-left: 15px;
+}
+.message-feed:not(.right) .mf-content {
+    background: #eee;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.message-feed.right .mf-content {
+    background: #03a9f4;
+    color: #fff;
+}
+.mf-content {
+    padding: 12px 17px 13px;
+    border-radius: 2px;
+    display: inline-block;
+    max-width: 80%
+}
+.mf-date {
+    display: block;
+    color: #B3B3B3;
+    margin-top: 7px;
+}
+.mf-date>i {
+    font-size: 14px;
+    line-height: 100%;
+    position: relative;
+    top: 1px;
+}
+.msb-reply {
+    box-shadow: 0 -20px 20px -5px #fff;
+    position: relative;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    background: #f8f8f8;
+}
+.four-zero, .lc-block {
+    box-shadow: 0 1px 11px rgba(0, 0, 0, .27);
+}
+.msb-reply textarea {
+    width: 100%;
+    font-size: 13px;
+    border: 0;
+    padding: 10px 15px;
+    resize: none;
+    height: 60px;
+    background: 0 0;
+}
+.msb-reply button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    height: 100%;
+    width: 60px;
+    font-size: 25px;
+    color: #2196f3;
+    background: 0 0;
+}
+.msb-reply button:hover {
+    background: #f2f2f2;
+}
+.img-avatar {
+    height: 37px;
+    border-radius: 2px;
+    width: 37px;
+}
+.list-group.lg-alt .list-group-item {
+    border: 0;
+    line-height: normal;
+    position: relative;
+    list-style-position: inside;
+    padding-bottom: 0%;
+    padding-top: 0%;
+    padding-block-end: 0%;
+
+}
+.p-15 {
+    padding: 15px!important;
+}
+.btn:not(.btn-alt) {
+    border: 0;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding: 0%;
+}
+.action-header {
+    position: relative;
+    background: #f8f8f8;
+    padding: 15px 13px 15px 17px;
+}
+.ah-actions {
+    z-index: 3;
+    float: right;
+    margin-top: 7px;
+    position: relative;
+}
+.actions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.actions>li {
+    display: inline-block;
+}
+
+.actions:not(.a-alt)>li>a>i {
+    color: #939393;
+}
+.actions>li>a>i {
+    font-size: 20px;
+}
+.actions>li>a {
+    display: block;
+    padding: 0 10px;
+}
+.ms-body{
+    background:#fff;    
+}
+#ms-menu-trigger {
+    user-select: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    padding-right: 10px;
+    padding-top: 19px;
+    cursor:pointer;
+}
+#ms-menu-trigger, .message-feed.right {
+    text-align: right;
+}
+#ms-menu-trigger, .toggle-switch {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+        
+.user_img {
+    height: 35px;
+    width: 35px;
+}        
+
+    </style>
+
+    
+<body class="content-grid">
+    <header>
+        <div class="header-nav">
+            <span class="loginLink"><a href= "petOwner.html"><h1>PetLink</h1></a></span>
+            <a href="trending.html"> <button class="dropbtn">Trending</button></a>
+            <a href="messaging.html"> <button class="dropbtn">Messaging</button></a>
+
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Services</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Vetenarians</a>
+                    <a href="groomersOPT.html">Groomers</a>
+                    <a href="#">Walkers/Sitters</a>
+                </div>
+            </div>
+        </div>
+        <script>
+            /* JAVA SCRIPT THAT ACTIVATES THE DROP DOWN MENU */
+        
+            /* When the user clicks on the button, 
+            toggle between hiding and showing the dropdown content */
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+        
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+        </script>
+    </header>
+</body>
+    
+<body>
+<div class="container bootstrap snippet">
+    <div class="tile tile-alt" id="messages-main">
+        <div class="ms-menu">
+            <div class="ms-user clearfix">
+                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="img-avatar pull-left">
+                <div>Signed in as <br> petowner@gmail.com</div>
+            </div>
+            <br>
+            <!--
+            <div class="p-15">
+                <div class="dropdown">
+                    <a class="btn btn-primary btn-block" href="" data-toggle="dropdown">Messages <i class="caret m-l-5"></i></a>
+    
+                    <ul class="dropdown-menu dm-icon w-100">
+                        <li><a href=""><i class="fa fa-envelope"></i> Messages</a></li>
+                        <li><a href=""><i class="fa fa-users"></i> Contacts</a></li>
+                        <li><a href=""><i class="fa fa-format-list-bulleted"> </i>Todo Lists</a></li>
+                    </ul>
+                </div>
+            </div>
+            -->
+            <div class="list-group lg-alt">
+                <a class="list-group-item media" href="">
+                    <div class="pull-left">
+                       <img src="https://images.unsplash.com/photo-1485290334039-a3c69043e517?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=janko-ferlic-qzDF5PNEWKc-unsplash.jpg" class = "user_img">
+                    </div>
+                    <div class="media-body">
+                        <div class="list-group-item-heading">Gloria at Max Groomers</div>
+                        <small class="list-group-item-text c-gray">Best groomer in town</small>
+                    </div>
+                </a>
+                
+                <a class="list-group-item media" href="">
+                    <div class="pull-left">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=michael-dam-mEZ3PoFGs_k-unsplash.jpg" class="user_img">
+                    </div>
+                    <div class="media-body">
+                        <div class="list-group-item-heading">Ann Watkinson</div>
+                        <small class="list-group-item-text c-gray">Cat owner, Bella, 7 years old </small>
+                    </div>
+                </a>
+                
+                <a class="list-group-item media" href="">
+                    <div class="pull-left">
+                        <img src=https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=joseph-gonzalez-iFgRcqHznqg-unsplash.jpg class = "user_img">
+                    </div>
+                    <div class="media-body">
+                        <div class="list-group-item-heading">Marse Walter</div>
+                        <small class="list-group-item-text c-gray">Dog owner, Max, 3 years old</small>
+                    </div>
+                </a>
+                
+                <a class="list-group-item media" href="">
+                    <div class="lv-avatar pull-left">
+                        <img src="https://images.unsplash.com/photo-1564931768869-c66430fe1162?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=hitesh-choudhary-MC_qCHkXwVg-unsplash.jpg"  class="user_img">
+                    </div>
+                    <div class="media-body">
+                        <div class="list-group-item-heading">Jeremy Robbins</div>
+                        <small class="list-group-item-text c-gray">Animal Behavioral Specialist</small>
+                    </div>
+                </a>
+                
+                <a class="list-group-item media" href="">
+                    <div class="lv-avatar pull-left">
+                        <img src="https://images.unsplash.com/photo-1533075377664-f5c0cbc5a91c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=mauro-paillex-moDxmttUP00-unsplash.jpg" class="user_img">
+                    </div>
+                    <div class="media-body">
+                        <div class="list-group-item-heading">Reginald Horace</div>
+                        <small class="list-group-item-text c-gray">Owner of Lazy Dog Restaurant in Dallas</small>
+                    </div>
+                </a>
+                <!--
+                <a class="list-group-item media" href="">
+                    <div class="pull-left">
+                        <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=houcine-ncib-B4TjXnI0Y2c-unsplash.jpg" class="user_img">
+                    </div>
+                    <div class="media-body">
+                        <div class="list-group-item-heading">Elina Allard</div>
+                        <small class="list-group-item-text c-gray">Bird owner, Kiwi, 18 years old</small>
+                    </div>
+                </a>
+                
+                <a class="list-group-item media" href="">
+                    <div class="pull-left">
+                        <img src="https://images.unsplash.com/photo-1518779158850-b302524a03d2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=mohammed-hassan-MCQvZSEb-Ho-unsplash.jpg" class="user_img">
+                    </div>
+                    <div class="media-body">
+                        <div class="list-group-item-heading">Paul Van Dack</div>
+                        <small class="list-group-item-text c-gray">Hamster owner, Honey, 1 year old </small>
+                    </div>
+                </a>
+                -->
+                
+                <!--
+                <a class="list-group-item media" href="">
+                    <div class="lv-avatar pull-left">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="img-avatar">
+                    </div>
+                    <div class="media-body">
+                        <div class="list-group-item-heading">James Anderson</div>
+                        <small class="list-group-item-text c-gray">Vivamus imperdiet sagittis quam</small>
+                    </div>
+                </a>
+                
+                <a class="list-group-item media" href="">
+                    <div class="lv-avatar pull-left">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" class="img-avatar">
+                    </div>
+                    <div class="media-body">
+                        <div class="list-group-item-heading">Kane Williams</div>
+                        <small class="list-group-item-text c-gray">Suspendisse justo nulla luctus nec</small>
+                    </div>
+                </a>
+            -->
+            </div>
+    
+            
+        </div>
+        
+        <div class="ms-body">
+            <div class="action-header clearfix">
+                <div class="visible-xs" id="ms-menu-trigger">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <div class="pull-left hidden-xs">
+                    <img src="https://images.unsplash.com/photo-1485290334039-a3c69043e517?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=janko-ferlic-qzDF5PNEWKc-unsplash.jpg" class = "user_img">
+                    <div class="lv-avatar pull-left">
+                        
+                    </div>
+                    <span>Gloria at Max Groomers</span>
+                </div>
+                <ul class="ah-actions actions">
+                    <li>
+                        <a href="">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-check"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-clock-o"></i>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" data-toggle="dropdown" aria-expanded="true">
+                            <i class="fa fa-sort"></i>
+                        </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="">Latest</a>
+                            </li>
+                            <li>
+                                <a href="">Oldest</a>
+                            </li>
+                        </ul>
+                    </li>                             
+                    <li class="dropdown">
+                        <a href="" data-toggle="dropdown" aria-expanded="true">
+                            <i class="fa fa-bars"></i>
+                        </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="">Refresh</a>
+                            </li>
+                            <li>
+                                <a href="">Message Settings</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="message-feed media">
+                <div class="pull-left">
+                 <img src="https://images.unsplash.com/photo-1485290334039-a3c69043e517?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=janko-ferlic-qzDF5PNEWKc-unsplash.jpg" class = "user_img">
+                </div>
+                <div class="media-body">
+                    <div class="mf-content">
+                    Sebastian's grooming appointment is almost done. We should be all done by 10am. Let us know when you are on your way so we can have him ready!
+                    </div>
+                    <small class="mf-date"><i class="fa fa-clock-o"></i> 04/18/2020 at 09:00</small>
+                </div>
+            </div>
+            
+            <!--
+            <div class="message-feed right">
+                <div class="pull-right">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="img-avatar">
+                </div>
+                <div class="media-body">
+                    <div class="mf-content">
+                       Awesome! Thank you so much. Getting off work now should be there in about 20 mins.
+                    </div>
+                    <small class="mf-date"><i class="fa fa-clock-o"></i> 04/18/2020 at 09:30</small>
+                </div>
+            </div>
+            
+            <div class="message-feed media">
+                <div class="pull-left">
+                  <img src="https://images.unsplash.com/photo-1485290334039-a3c69043e517?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=janko-ferlic-qzDF5PNEWKc-unsplash.jpg" class = "user_img">
+                </div>
+                <div class="media-body">
+                    <div class="mf-content">
+                        Sounds good, he will be ready to go. Make sure to fill out paper works at the front office.
+                    </div>
+                    <small class="mf-date"><i class="fa fa-clock-o"></i> 04/18/2020 at 09:33</small>
+                </div>
+            </div>
+            -->
+            <!--
+            <div class="message-feed right">
+                <div class="pull-right">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" class="img-avatar">
+                </div>
+                <div class="media-body">
+                    <div class="mf-content">
+                        Etiam nec facilisis lacus. Nulla imperdiet augue ullamcorper dui ullamcorper, eu laoreet sem consectetur. Aenean et ligula risus. Praesent sed posuere sem. Cum sociis natoque penatibus et magnis dis parturient montes,
+                    </div>
+                    <small class="mf-date"><i class="fa fa-clock-o"></i> 04/18/2020 at 10:10</small>
+                </div>
+            </div>
+            -->
+            <!--
+            <div class="message-feed media">
+                <div class="pull-left">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="img-avatar">
+                </div>
+                <div class="media-body">
+                    <div class="mf-content">
+                        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ac tortor ut elit sodales varius. Mauris id ipsum id mauris malesuada tincidunt. Vestibulum elit massa, pulvinar at sapien sed, luctus vestibulum eros. Etiam finibus tristique ante, vitae rhoncus sapien volutpat eget
+                    </div>
+                    <small class="mf-date"><i class="fa fa-clock-o"></i> 04/18/2020 at 10:24</small>
+                </div>
+            </div>
+            -->
+            <div class="msb-reply">
+                <textarea placeholder="What's on your mind..."></textarea>
+                <a href="messaging_2.html"><button><i class="fa fa-paper-plane-o"></i></button></a>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<footer>
+    <span class="contactus">Contact us: <a href="mailto:support@petlink.com">support@petlinkapp.com</a></span>
+    <span class="social_icons">
+        <!-- <a href="linktofacebook"><i class="fab fa-facebook"></i></a>
+        <a href="linktotwitter"><i class="fab fa-twitter"></i></a> -->
+    </span>
+    <button type="button"><a href="index.html">Log Out</a></button>
+</footer>
+
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+$(function(){
+   if ($('#ms-menu-trigger')[0]) {
+        $('body').on('click', '#ms-menu-trigger', function() {
+            $('.ms-menu').toggleClass('toggled'); 
+        });
+    }
+});
+
+
+
+</script>
+</body>
+</html>
